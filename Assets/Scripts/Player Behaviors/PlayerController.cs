@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    void FixedUpdate() {
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
         Vector2 movement = new Vector3(inputX, inputY);
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour {
 
         if (movement != Vector2.zero) {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
         }
     }
 }
