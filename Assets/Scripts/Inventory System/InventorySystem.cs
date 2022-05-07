@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventorySystem : MonoBehaviour
+public class InventorySystem
 {
-    private Dictionary<InventoryItemData, InventoryItem> m_item_dictionary;
+    private readonly Dictionary<InventoryItemData, InventoryItem> m_item_dictionary;
     public List<InventoryItem> inventory {get; private set; }
 
-    private void Awake()
+    public InventorySystem()
     {
         inventory = new List<InventoryItem>();
         m_item_dictionary = new Dictionary<InventoryItemData, InventoryItem>();
