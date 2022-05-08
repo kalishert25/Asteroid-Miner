@@ -45,4 +45,8 @@ public class InventorySystem
         }
         return null;
     }
+    public List<InventoryItemData> GetItemTypes()
+    {
+        return new List<InventoryItemData>(m_item_dictionary.Keys);
+    }
 }

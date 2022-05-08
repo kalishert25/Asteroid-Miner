@@ -19,7 +19,6 @@ public class AsteroidSpawner : MonoBehaviour
     void Start()
     {
         asteroids = new List<Asteroid>();
-        CreateAsteroid();
         StartCoroutine("TryToSpawnAsteroid");
 
     }
@@ -30,7 +29,6 @@ public class AsteroidSpawner : MonoBehaviour
             currSpawnAngle = Random.Range(0, 2 * Mathf.PI);
             currSpawnPos.x = spawnRadius * Mathf.Cos(currSpawnAngle) + player.position.x;
             currSpawnPos.y = spawnRadius * Mathf.Sin(currSpawnAngle) + player.position.y;
-            Debug.Log((asteroids.Select(a => (a.Position() - currSpawnPos).magnitude).All(m => m > minSpacing)));
             if (asteroids.Select(a => (a.Position() - currSpawnPos).magnitude).All(m => m > minSpacing))
             { // checks if the asteroid is far enough away from other asteroids
                 CreateAsteroid();
@@ -43,7 +41,6 @@ public class AsteroidSpawner : MonoBehaviour
     
     private void CreateAsteroid()
     {
-        Debug.Log("Created an asteroid");
         float scaleFactor = Random.Range(0.7f, 1.7f);
         float theta = Random.Range(0f, 4f);
         Asteroid newAsteroid = new Asteroid(currSpawnPos, sprites[Random.Range(0, sprites.Count)], theta * 90f, scaleFactor);

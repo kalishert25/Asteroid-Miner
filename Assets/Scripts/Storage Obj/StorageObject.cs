@@ -13,17 +13,20 @@ public abstract class StorageObject
         gameObject = new GameObject("Asteroid");
         gameObject.AddComponent<SpriteRenderer>();
         gameObject.AddComponent<Rigidbody2D>();
-        gameObject.AddComponent<TilemapCollider2D>();
+        gameObject.AddComponent<PolygonCollider2D>();
+        gameObject.AddComponent<StorageObjectPointer>();
+
+        gameObject.GetComponent<PolygonCollider2D>().SetPath(0, sprite.vertices);
         gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
-        gameObject.AddComponent<StorageObjectPointer>();
+        gameObject.GetComponent<PolygonCollider2D>().isTrigger = true;
         gameObject.GetComponent<StorageObjectPointer>().IntanceRef = this;
         gameObject.transform.position = position;
         gameObject.transform.eulerAngles = Vector3.forward * rotationAngle;
         gameObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
         inventory = new InventorySystem();
     }
-
+     
     public void TrasferItems(StorageObject targetInventory, InventoryItemData referenceData, int quantity=1)
     {
         for (int i = 0; i < quantity; i ++)
