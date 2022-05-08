@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InventorySystem
 {
-    private readonly Dictionary<InventoryItemData, InventoryItem> m_item_dictionary;
+    private Dictionary<InventoryItemData, InventoryItem> m_item_dictionary;
     public List<InventoryItem> inventory {get; private set; }
 
     public InventorySystem()
@@ -45,5 +45,4 @@ public class InventorySystem
         }
         return null;
     }
-
 }

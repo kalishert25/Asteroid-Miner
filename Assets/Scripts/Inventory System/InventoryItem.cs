@@ -1,8 +1,9 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[SerializeField]
+[Serializable]
 public class InventoryItem
 {
     public InventoryItemData data { get; private set; }
@@ -10,6 +11,12 @@ public class InventoryItem
 
     public InventoryItem(InventoryItemData source)
     {
+        data = source;
+        AddToStack();
+    }
+    public InventoryItem(InventoryItemData source, int stackSize)
+    {
+        this.stackSize = stackSize;
         data = source;
         AddToStack();
     }

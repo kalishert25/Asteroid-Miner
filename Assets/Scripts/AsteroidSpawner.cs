@@ -1,36 +1,36 @@
-using System.Collections;
+using System;
+
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AsteroidSpawner : MonoBehaviour
 {
-    public GameObject asteroid;
+
+    public float spawnRadius, minSpacing;
     public List<Sprite> sprites;
-    public int NUMBER_OF_ASTEROIDS = 10;
-    public readonly (float, float) BOUNDS = (60f, 40f);
-    private List<GameObject> asteroids;
-    // Start is called before the first frame update
+    private List<Asteroid> asteroids;
+    private Vector2 currSpawnLocation;
+
     void Start()
     {
-        asteroids = new List<GameObject>();
-        for (int i = 0; i < NUMBER_OF_ASTEROIDS; i++)
-        {
-            SpawnAsteroid();
-        }
+        asteroids = new List<Asteroid>();
+
+    }
+    private void Update()
+    {
+
+        asteroids.Select(a => a.Position());
     }
 
-    // Update is called once per frame
     private void SpawnAsteroid()
     {
         float scaleFactor = Random.Range(0.7f, 1.7f);
-        float xCoord = Random.Range(-BOUNDS.Item1, BOUNDS.Item1);
-        float yCoord = Random.Range(-BOUNDS.Item2, BOUNDS.Item2);
+        float xCoord = Random.Range(-10, 10);
+        float yCoord = Random.Range(-10, 10);
         float theta = Random.Range(0f, 4f);
-        GameObject newAsteroid = Instantiate(asteroid);
-        newAsteroid.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Count)];
-        newAsteroid.transform.position = new Vector3(xCoord, yCoord, 0);
-        newAsteroid.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
-        newAsteroid.transform.eulerAngles = Vector3.forward * theta * 90;
+        Asteroid newAsteroid = new Asteroid(new Vector2(xCoord, yCoord), sprites[Random.Range(0, sprites.Count)], theta * 90f, scaleFactor);
         asteroids.Add(newAsteroid);
     }
 

@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c0eeacff9d31164aaefe472555e3e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroid: {fileID: 1173375632}
+  asteroidPrefab: {fileID: 1173375632}
   sprites:
   - {fileID: 21300000, guid: bf053aeb00f08214281b56e1d52f5e70, type: 3}
   - {fileID: 21300000, guid: 8d306d914525ed94aa4e8c8269ff552f, type: 3}
