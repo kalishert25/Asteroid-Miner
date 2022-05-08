@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public abstract class StorageObject
 {
     public GameObject gameObject {get; set;}
     private InventorySystem inventory { get; set; }
-    public StorageObject(Vector2 position, Sprite sprite, float rotationAngle = 0, float scaleFactor = 1)
+    public StorageObject(Vector2 position, Sprite sprite, float rotationAngle, float scaleFactor)
     {
+        
         gameObject = new GameObject("Asteroid");
         gameObject.AddComponent<SpriteRenderer>();
         gameObject.AddComponent<Rigidbody2D>();
-        gameObject.AddComponent<CustomCollider2D>();
+        gameObject.AddComponent<TilemapCollider2D>();
         gameObject.GetComponent<SpriteRenderer>().sprite = sprite;
         gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
+        gameObject.AddComponent<StorageObjectPointer>();
+        gameObject.GetComponent<StorageObjectPointer>().IntanceRef = this;
         gameObject.transform.position = position;
         gameObject.transform.eulerAngles = Vector3.forward * rotationAngle;
         gameObject.transform.localScale = new Vector3(scaleFactor, scaleFactor, 1);
