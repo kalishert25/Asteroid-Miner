@@ -9,6 +9,7 @@ public abstract class StorageObject : MonoBehaviour
     public void Start()
     {
         inventory = new InventorySystem();
+        //gameObject.GetComponent<PolygonCollider2D>().SetPath(0, gameObject.GetComponent<SpriteRenderer>().sprite.vertices);
     }
      
     public void TrasferItems(StorageObject targetInventory, InventoryItemData referenceData, int quantity=1)
