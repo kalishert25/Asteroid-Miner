@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 815466196}
-  - component: {fileID: 815466195}
+  - component: {fileID: 815466197}
   m_Layer: 0
   m_Name: AsteroidSpawner
   m_TagString: Untagged
@@ -559,27 +559,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &815466195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 815466194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c0eeacff9d31164aaefe472555e3e95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 2080549262}
-  player: {fileID: 849831455}
-  spawnRadius: 25
-  minSpacing: 20
-  secondsBetweenSpawning: 0.5
-  sprites:
-  - {fileID: 21300000, guid: 81e4bca0face52f439b09cbede1f3e0e, type: 3}
-  - {fileID: 21300000, guid: 7bb78fef8b84f15408a6aecb148126c0, type: 3}
-  - {fileID: 21300000, guid: dbc07a19162c4cc4ca9a7da1b6d539b2, type: 3}
 --- !u!4 &815466196
 Transform:
   m_ObjectHideFlags: 0
@@ -596,6 +575,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &815466197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815466194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec0665c43b706e4699f5bef073f8aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2080549262}
+  player: {fileID: 849831455}
+  wRadius: 25
+  minSpacing: 20
+  secondsBetweenSpawning: 0.5
 --- !u!1 &849831453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,6 +1185,7 @@ GameObject:
   - component: {fileID: 2080549265}
   - component: {fileID: 2080549264}
   - component: {fileID: 2080549263}
+  - component: {fileID: 2080549267}
   m_Layer: 0
   m_Name: AsteroidPrefab
   m_TagString: Untagged
@@ -1314,3 +1311,19 @@ Transform:
   m_Father: {fileID: 815466196}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2080549267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080549262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff99e0d460fc48445886525b4acbefa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 81e4bca0face52f439b09cbede1f3e0e, type: 3}
+  - {fileID: 21300000, guid: 7bb78fef8b84f15408a6aecb148126c0, type: 3}
+  - {fileID: 21300000, guid: dbc07a19162c4cc4ca9a7da1b6d539b2, type: 3}
