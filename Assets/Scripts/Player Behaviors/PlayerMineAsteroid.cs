@@ -10,17 +10,14 @@ public class PlayerMineAsteroid : MonoBehaviour
     {
         Debug.Log("Stared Mining Script");
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("Entered");
-        if (Input.GetKeyDown(mineKey)) {
-            Debug.Log("Mining");
+
+        if (Input.GetKey(mineKey))
+        {
+ 
         }
         //collision.articulationBody.GetComponent<StorageObjectPointer>().IntanceRef.TrasferItems();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
