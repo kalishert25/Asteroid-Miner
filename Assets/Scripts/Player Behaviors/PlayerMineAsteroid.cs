@@ -8,7 +8,7 @@ public class PlayerMineAsteroid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Stared Mining Script");
+        Debug.Log("Started Mining Script");
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -16,7 +16,7 @@ public class PlayerMineAsteroid : MonoBehaviour
 
         if (Input.GetKey(mineKey))
         {
- 
+            
         }
         //collision.articulationBody.GetComponent<StorageObjectPointer>().IntanceRef.TrasferItems();
     }

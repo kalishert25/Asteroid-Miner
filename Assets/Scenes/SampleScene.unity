@@ -589,7 +589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 2080549262}
   player: {fileID: 849831455}
-  wRadius: 25
+  spawnRadius: 25
   minSpacing: 20
   secondsBetweenSpawning: 0.5
 --- !u!1 &849831453
@@ -872,8 +872,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1428562281}
   - component: {fileID: 1428562280}
-  - component: {fileID: 1428562279}
   - component: {fileID: 1428562282}
+  - component: {fileID: 1428562283}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -881,20 +881,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1428562279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428562278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b5e7873d0d980499b43b92c1f94eeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 849831455}
-  offset: {x: 0, y: 0, z: 5}
 --- !u!212 &1428562280
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -956,8 +942,8 @@ Transform:
   m_GameObject: {fileID: 1428562278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 18}
-  m_LocalScale: {x: -0.3, y: -0.3, z: -0.3}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: -0.297, y: -0.222, z: -0.3}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -975,6 +961,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 0}
+--- !u!114 &1428562283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428562278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65b5e7873d0d980499b43b92c1f94eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 849831455}
+  offset: {x: 0, y: 0, z: 6}
 --- !u!1 &1634826923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,8 +1038,8 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 96, y: 72}
+  m_DrawMode: 2
+  m_Size: {x: 288, y: 216}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1053,8 +1053,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634826923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
+  m_LocalScale: {x: 0.297, y: 0.222, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1069,11 +1069,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1634826923}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b5e7873d0d980499b43b92c1f94eeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 67689ac599ab94048ad64eeddfe67551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 849831455}
-  offset: {x: 0, y: 0, z: 5}
+  effectMultiplier: 0.5
 --- !u!1 &1859283786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1138,7 +1137,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 96, y: 72}
+  m_Size: {x: 288, y: 216}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1152,8 +1151,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859283786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
+  m_LocalScale: {x: 0.297, y: 0.222, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1168,11 +1167,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1859283786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b5e7873d0d980499b43b92c1f94eeb, type: 3}
+  m_Script: {fileID: 11500000, guid: 67689ac599ab94048ad64eeddfe67551, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 849831455}
-  offset: {x: 0, y: 0, z: 5}
+  effectMultiplier: 0.3
 --- !u!1 &2080549262
 GameObject:
   m_ObjectHideFlags: 0
