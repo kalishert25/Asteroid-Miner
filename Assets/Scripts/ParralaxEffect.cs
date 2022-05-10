@@ -21,8 +21,6 @@ public class ParralaxEffect : MonoBehaviour
         textureUnitsSizeX = texture.width / sprite.pixelsPerUnit * transform.localScale.x;
         textureUnitsSizeY = texture.height / sprite.pixelsPerUnit * transform.localScale.y;
 
-        Debug.Log(textureUnitsSizeX);
-        Debug.Log(textureUnitsSizeY);
 
     }
 
@@ -31,14 +29,14 @@ public class ParralaxEffect : MonoBehaviour
 
         difference = cameraLocation.position - oldCameraLocation;
         moved = new Vector3(difference.x, difference.y, 0);
-        transform.position += moved*effectMultiplier;
+        transform.position += moved * effectMultiplier;
         oldCameraLocation = cameraLocation.position;
 
         if (Mathf.Abs(cameraLocation.position.x - transform.position.x) >= textureUnitsSizeX)
         {
 
             float offsetPositionX = (cameraLocation.position.x - transform.position.x) % textureUnitsSizeX;
-            transform.position = new Vector3(cameraLocation.position.x + offsetPositionX, transform.position.y);
+            transform.position = new Vector3(cameraLocation.position.x + offsetPositionX, transform.position.y, transform.position.z);
 
         }
 
@@ -46,7 +44,7 @@ public class ParralaxEffect : MonoBehaviour
         {
 
             float offsetPositionY = (cameraLocation.position.y - transform.position.y) % textureUnitsSizeY;
-            transform.position = new Vector3(transform.position.y, cameraLocation.position.y + offsetPositionY);
+            transform.position = new Vector3(transform.position.x, cameraLocation.position.y + offsetPositionY, transform.position.z);
 
         }
 
