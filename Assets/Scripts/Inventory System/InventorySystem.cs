@@ -25,6 +25,13 @@ public class InventorySystem
             m_item_dictionary.Add(referenceData, newItem);
         }
     }
+    public void Add(InventoryItemData referenceData, int quantity)
+    {
+        for (int i = 0; i < quantity; i++)
+        {
+            Add(referenceData);
+        }
+    }
     public void Remove(InventoryItemData referenceData)
     {
         if (m_item_dictionary.TryGetValue(referenceData, out InventoryItem value))
@@ -35,6 +42,13 @@ public class InventorySystem
                 inventory.Remove(value);
                 m_item_dictionary.Remove(referenceData);
             }
+        }
+    }
+    public void Remove(InventoryItemData referenceData, int quantity)
+    {
+        for (int i = 0; i < quantity; i++)
+        {
+            Remove(referenceData);
         }
     }
     public InventoryItem Get(InventoryItemData referenceData)
@@ -49,4 +63,9 @@ public class InventorySystem
     {
         return new List<InventoryItemData>(m_item_dictionary.Keys);
     }
+    //public List<InventoryItemData> GetInventory()
+    //{
+    //    return new Dictionary<string, int>(m_item_dictionary.Values.data.displayName);
+    //    m_item_dictionary.Values
+    //}
 }

@@ -16,7 +16,9 @@ public class PlayerMineAsteroid : MonoBehaviour
 
         if (Input.GetKey(mineKey))
         {
- 
+            Debug.Log("Mining");
+            collision.gameObject.GetComponent<Asteroid>().onHandleMine();
+            Debug.Log(gameObject.GetComponent<PlayerStorage>().inventory.GetItemTypes());
         }
         //collision.articulationBody.GetComponent<StorageObjectPointer>().IntanceRef.TrasferItems();
     }

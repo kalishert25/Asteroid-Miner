@@ -5,18 +5,15 @@ using UnityEngine.Tilemaps;
 
 public abstract class StorageObject : MonoBehaviour
 {
-    private InventorySystem inventory { get; set; }
-    private void Start()
+
+    public InventorySystem inventory = new();
+    private void Start() { }
+
+    public void TrasferItems(StorageObject targetInventory, InventoryItemData referenceData, int quantity = 1)
     {
-        inventory = new InventorySystem();
-    }
-     
-    public void TrasferItems(StorageObject targetInventory, InventoryItemData referenceData, int quantity=1)
-    {
-        for (int i = 0; i < quantity; i ++)
-        {
-            inventory.Remove(referenceData);
-            targetInventory.inventory.Add(referenceData);
-        }
+
+        inventory.Remove(referenceData, quantity);
+        targetInventory.inventory.Add(referenceData);
+
     }
 }
