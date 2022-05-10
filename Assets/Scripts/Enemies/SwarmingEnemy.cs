@@ -11,19 +11,19 @@ public abstract class SwarmingEnemy : BaseEnemy
     {
         if(player.position.x > gameObject.position.x)
         {
-            player.position.x -= swarmSpeed
+            player.position.x -= swarmSpeed;
         }
         else
         {
-            player.position.x += swarmSpeed
+            player.position.x += swarmSpeed;
         }
         if(player.position.y > gameObject.position.y)
         {
-            player.position.y -= swarmSpeed
+            player.position.y -= swarmSpeed;
         }
         else
         {
-            player.position.y += swarmSpeed
+            player.position.y += swarmSpeed;
         }
     }
 
