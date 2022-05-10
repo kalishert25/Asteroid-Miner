@@ -17,11 +17,15 @@ public class ProximitySpawner : MonoBehaviour
     private Vector2 currSpawnPos;
     void Start()
     {
-        gameObjects = new();
+        gameObjects ??= new();
         gameObjects.Add(prefab);
         StartCoroutine("SpawnObjects");
     }
+    /// <summary>
+    /// Method <c>SpawnObjects</c> spawns GameObjects at a constant interval at a set distance from the player.
+    /// </summary>
     IEnumerator SpawnObjects()
+    
     {
         for (; ; )
         {
