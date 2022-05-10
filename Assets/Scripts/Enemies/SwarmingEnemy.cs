@@ -3,27 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public abstract class SwarmingEnemy : BaseEnemy 
+public abstract class SwarmingEnemy : BaseEnemy
 {
     [SerializeField]
     private float swarmSpeed;
-    private void Swarm() 
+    protected override void Start()
     {
-        if(player.position.x > gameObject.position.x)
+        base.Start();
+    }
+    private void FixedUpdate()
+    {
+        if (player.position.x > transform.position.x)
         {
-            player.position.x -= swarmSpeed;
+            player.position += Vector3.left;
         }
         else
         {
-            player.position.x += swarmSpeed;
+            player.position += Vector3.right;
         }
-        if(player.position.y > gameObject.position.y)
+        if (player.position.y > transform.position.y)
         {
-            player.position.y -= swarmSpeed;
+            player.position += Vector3.down;
         }
         else
         {
-            player.position.y += swarmSpeed;
+            player.position += Vector3.up;
         }
     }
 

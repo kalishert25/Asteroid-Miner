@@ -8,7 +8,11 @@ public abstract class BaseEnemy : MonoBehaviour
     public Transform player;
     [SerializeField]
     private int maxHealth;
-    private int currentHealth = maxHealth;
+    private int currentHealth;
+    protected virtual void Start()
+    {
+        currentHealth = maxHealth;
+    }
     public void TakeDamage(int value)
     {
         currentHealth -= value;
