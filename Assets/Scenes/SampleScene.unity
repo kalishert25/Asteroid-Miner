@@ -1540,8 +1540,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1792158266}
   bulletPrefab: {fileID: 6144247892384821099, guid: ba78b362038a2c54eb757ffe2b72d05e, type: 3}
+  muzzlePrefab: {fileID: 50279614635376499, guid: 8f3eb1e66b590f14eb3d911c74d4ab11, type: 3}
   bulletForce: 75
-  shootDelay: 0
+  bulletDespawnTime: 3
+  flashDespawnTime: 0.02
+  cooldown: 0.3
 --- !u!1 &1139096286
 GameObject:
   m_ObjectHideFlags: 0
