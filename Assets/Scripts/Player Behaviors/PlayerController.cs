@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
     private float speed;
     [SerializeField]
     private float rotationSpeed;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start() {
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void FixedUpdate() {
+        
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
         Vector2 movement = new Vector3(inputX, inputY);
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour {
         movement.Normalize();
         movement *= Time.deltaTime;
         transform.Translate(movement * speed * inputMagnitude * Time.deltaTime, Space.World);
+        animator.SetFloat("Speed", Mathf.Abs(movement.magnitude));
 
         if (movement != Vector2.zero) {
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);

@@ -1195,6 +1195,7 @@ GameObject:
   - component: {fileID: 849831459}
   - component: {fileID: 849831461}
   - component: {fileID: 849831462}
+  - component: {fileID: 849831463}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1283,6 +1284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 500
   rotationSpeed: 360
+  animator: {fileID: 849831463}
 --- !u!50 &849831458
 Rigidbody2D:
   serializedVersion: 4
@@ -1360,6 +1362,26 @@ PolygonCollider2D:
       - {x: -13.012924, y: 2.8174286}
       - {x: -13.012924, y: -11.182571}
       - {x: 12.987076, y: -11.182571}
+--- !u!95 &849831463
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849831453}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4f7d5814652a8fd4d971c1f5ed227726, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1139096286
 GameObject:
   m_ObjectHideFlags: 0
