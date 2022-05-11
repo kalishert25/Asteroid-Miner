@@ -1,21 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+public class PlayerController : StorageObject {
+    public KeyCode mineKey;
+    public Slider fuelBar, healthBar;
+    public float maxHealth, maxFuel, passiveFuelLoss, fuelLossWhileMoving;
+    private float hp, fp;
 
-public class PlayerController : MonoBehaviour {
+
     [SerializeField]
     private float speed;
     [SerializeField]
     private float rotationSpeed;
     public Animator animator;
 
-    // Start is called before the first frame update
     void Start() {
+        hp = maxHealth;
+        fp = maxFuel;
+        fuelBar.maxValue = maxFuel;
+        healthBar.maxValue = maxHealth;
     }
 
-    // Update is called once per frame
     void FixedUpdate() {
-        
+        // passive fuel loss
+        fp -= passiveFuelLoss;
+        fuelBar.value = (float)fp;
+        healthBar.value = hp;
+
+        //movement
         float inputX = Input.GetAxis("Horizontal");
         float inputY = Input.GetAxis("Vertical");
         Vector2 movement = new Vector3(inputX, inputY);
@@ -26,8 +39,18 @@ public class PlayerController : MonoBehaviour {
         animator.SetFloat("Speed", Mathf.Abs(movement.magnitude));
 
         if (movement != Vector2.zero) {
+            fp -= fuelLossWhileMoving;
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+        if (Input.GetKey(mineKey))
+        {
+            //hp -= 2;
+            collision.gameObject.GetComponent<Asteroid>().onHandleMine();
         }
     }
 }
