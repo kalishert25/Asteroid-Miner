@@ -10,12 +10,14 @@ public class PlayerController : StorageObject {
 
 
     [SerializeField]
-    private float speed;
+    private float speed, passiveMovementSpeed;
     [SerializeField]
     private float rotationSpeed;
+    private Vector2 drift;
     public Animator animator;
 
     void Start() {
+        drift = Vector2.zero;
         hp = maxHealth;
         fp = maxFuel;
         fuelBar.maxValue = maxFuel;
@@ -39,17 +41,21 @@ public class PlayerController : StorageObject {
         animator.SetFloat("Speed", Mathf.Abs(movement.magnitude));
 
         if (movement != Vector2.zero) {
+            drift = movement;
             fp -= fuelLossWhileMoving;
             Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movement);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
+        else
+        {
+            transform.Translate(drift * passiveMovementSpeed * Time.deltaTime, Space.World);
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-
+        Debug.Log("Hitting");
         if (Input.GetKey(mineKey))
         {
-            //hp -= 2;
             collision.gameObject.GetComponent<Asteroid>().onHandleMine();
         }
     }
