@@ -1,10 +1,20 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InventorySystem
 {
     private Dictionary<InventoryItemData, InventoryItem> m_item_dictionary;
+    internal event Action OnModified;
+    private void Modify()
+    {
+        if(OnModified != null)
+        {
+            OnModified();
+        }
+    }
     public List<InventoryItem> inventory {get; private set; }
 
     public InventorySystem()
@@ -24,6 +34,7 @@ public class InventorySystem
             inventory.Add(newItem);
             m_item_dictionary.Add(referenceData, newItem);
         }
+        Modify();
     }
     public void Add(InventoryItemData referenceData, int quantity)
     {
@@ -43,6 +54,7 @@ public class InventorySystem
                 m_item_dictionary.Remove(referenceData);
             }
         }
+        Modify();
     }
     public void Remove(InventoryItemData referenceData, int quantity)
     {
@@ -68,4 +80,8 @@ public class InventorySystem
     //    return new Dictionary<string, int>(m_item_dictionary.Values.data.displayName);
     //    m_item_dictionary.Values
     //}
+    public List<InventoryItem> ToList()
+    {
+        return m_item_dictionary.Values.ToList<InventoryItem>();
+    }
 }

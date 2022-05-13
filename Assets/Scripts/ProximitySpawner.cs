@@ -11,7 +11,7 @@ public class ProximitySpawner : MonoBehaviour
 
     public float spawnRadius, minSpacing, secondsBetweenSpawning;
     
-    private static List<GameObject> gameObjects;
+    public static List<GameObject> gameObjects;
 
     private float currSpawnAngle;
     private Vector2 currSpawnPos;

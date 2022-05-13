@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.Tilemaps;
 
 public abstract class StorageObject : MonoBehaviour
 {
 
     public InventorySystem inventory = new();
-    private void Start() { }
+    private void Start() 
+    {
+        
+    }
 
     public void TrasferItems(StorageObject targetInventory, InventoryItemData referenceData, int quantity = 1)
     {
@@ -16,4 +20,5 @@ public abstract class StorageObject : MonoBehaviour
         targetInventory.inventory.Add(referenceData);
 
     }
+    
 }
