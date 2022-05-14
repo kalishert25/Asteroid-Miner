@@ -6,35 +6,68 @@ using UnityEngine;
 
 public class InventorySystem
 {
+
     private Dictionary<InventoryItemData, InventoryItem> m_item_dictionary;
+    internal event Action OnStackModified;
+    internal event Action OnItemAdd;
+    internal event Action OnItemRemove;
     internal event Action OnModified;
-    private void Modify()
-    {
-        if(OnModified != null)
-        {
-            OnModified();
-        }
-    }
-    public List<InventoryItem> inventory {get; private set; }
+
+    public List<InventoryItem> inventory { get; private set; }
+    public InventoryItem LastModified { get; private set; }
 
     public InventorySystem()
     {
         inventory = new List<InventoryItem>();
         m_item_dictionary = new Dictionary<InventoryItemData, InventoryItem>();
     }
+    private void Modify()
+    {
+        if (OnModified != null)
+        {
+            OnModified();
+        }
+    }
+    private void ItemAdd()
+    {
+        if (OnItemAdd != null)
+        {
+            OnItemAdd();
+        }
+        Modify();
+    }
+    private void ItemRemove()
+    {
+        if (OnItemRemove != null)
+        {
+            OnItemRemove();
+        }
+        Modify();
+    }
+    private void StackModify()
+    {
+        if (OnStackModified != null)
+        {
+            OnStackModified();
+        }
+        Modify();
+    }
     public void Add(InventoryItemData referenceData)
     {
-        if(m_item_dictionary.TryGetValue(referenceData, out InventoryItem value))
+        if (m_item_dictionary.TryGetValue(referenceData, out InventoryItem value))
         {
             value.AddToStack();
+            LastModified = value;
+            StackModify();
         }
         else
         {
             InventoryItem newItem = new InventoryItem(referenceData);
             inventory.Add(newItem);
             m_item_dictionary.Add(referenceData, newItem);
+            LastModified = newItem;
+            ItemAdd();
         }
-        Modify();
     }
     public void Add(InventoryItemData referenceData, int quantity)
     {
@@ -48,13 +81,18 @@ public class InventorySystem
         if (m_item_dictionary.TryGetValue(referenceData, out InventoryItem value))
         {
             value.RemoveFromStack();
+            LastModified = value;
             if (value.stackSize == 0)
             {
                 inventory.Remove(value);
                 m_item_dictionary.Remove(referenceData);
+                ItemRemove();
+            }
+            else
+            {
+                StackModify();
             }
         }
-        Modify();
     }
     public void Remove(InventoryItemData referenceData, int quantity)
     {

@@ -315,7 +315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86bedcb4016ab94685cd09b1fff061b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slotCount: 0
   m_slotPrefab: {fileID: 5811067932369691357, guid: 2fd8087fe77075d42ac1f3643797bc41, type: 3}
   player: {fileID: 849831456}
 --- !u!1 &388583529
@@ -2479,11 +2478,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1724463099}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b86bedcb4016ab94685cd09b1fff061b, type: 3}
+  m_Script: {fileID: 11500000, guid: c271369d74c71db4080837501d226a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slotCount: 6
   m_slotPrefab: {fileID: 6817024406841226288, guid: f4a832be9e7f49d4fbd7c9c007332216, type: 3}
+  m_draggableItemPrefab: {fileID: 6368240163021419549, guid: cea827fce540329409ea34c8729a1123, type: 3}
   player: {fileID: 849831456}
 --- !u!1 &1770672172
 GameObject:
