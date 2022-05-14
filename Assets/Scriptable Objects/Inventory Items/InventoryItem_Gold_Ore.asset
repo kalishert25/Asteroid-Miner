@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: InventoryItem_Gold_Ore
   displayName: Gold Ore
-  icon: {fileID: 21300000, guid: b55736cc5a18cba4c854ebdc2e792966, type: 3}
-  prefab: {fileID: 0}
+  icon: {fileID: 21300000, guid: 3f0905e5ba16216448b851b829e6b7e9, type: 3}
+  value: 0

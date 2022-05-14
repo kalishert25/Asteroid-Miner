@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72cc81feaa7b8cf4bbfaa6293438b794, type: 3}
-  m_Name: InventoryItem_Iron_Ore
+  m_Name: InventoryItemCobaltOre
   m_EditorClassIdentifier: 
-  id: InventoryItem_Iron_Ore
-  displayName: Iron Ore
-  icon: {fileID: 21300000, guid: fcaba86912395ca42b8775e1c13e2869, type: 3}
+  id: InventoryItem_Cobalt_Ore
+  displayName: Cobalt Ore
+  icon: {fileID: 21300000, guid: 4a52d935f3b332644bd2f1b1c5d66e65, type: 3}
   value: 0

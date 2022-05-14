@@ -266,16 +266,16 @@ RectTransform:
   m_GameObject: {fileID: 146465780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 0.8666666}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 655430855}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -81.70001, y: -129.41174}
-  m_SizeDelta: {x: 100, y: 181.2029}
+  m_AnchoredPosition: {x: -83.900024, y: -410.2133}
+  m_SizeDelta: {x: 100, y: 608.3003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146465782
 MonoBehaviour:
@@ -295,9 +295,9 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 6
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
@@ -1848,6 +1848,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c1af4f59ad74ca74faf45dbcaf893523, type: 2}
   - {fileID: 11400000, guid: 37640a2e366a0324d90575baac8512bc, type: 2}
   - {fileID: 11400000, guid: 7ec7d748f51553647bf75496a226ef4d, type: 2}
+  - {fileID: 11400000, guid: bf0953ef5e5d215428a83df65f60a0a3, type: 2}
+  - {fileID: 11400000, guid: 27785f049c6acfc488b6a94bf705bccf, type: 2}
   player: {fileID: 849831456}
   sprites:
   - {fileID: 21300000, guid: 81e4bca0face52f439b09cbede1f3e0e, type: 3}

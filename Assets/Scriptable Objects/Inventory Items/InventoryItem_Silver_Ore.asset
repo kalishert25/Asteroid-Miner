@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: InventoryItem_Silver_Ore
   displayName: Silver Ore
-  icon: {fileID: 21300000, guid: 89726ba0653b3344897b26ffc9592325, type: 3}
-  prefab: {fileID: 0}
+  icon: {fileID: 21300000, guid: c104039d1f5ead145a7045fc3c29536b, type: 3}
+  value: 0
