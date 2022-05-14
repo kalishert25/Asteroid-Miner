@@ -2,16 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryUI : MonoBehaviour
+public class ModalInventory : MonoBehaviour
 {
-    public int slotCount;
     [SerializeField]
     private GameObject m_slotPrefab;
     [SerializeField]
     private StorageObject player;
     void Awake()
     {
-        DrawInventory();
         player.inventory.OnModified += OnUpdateInventory;
     }
 
@@ -26,15 +24,16 @@ public class InventoryUI : MonoBehaviour
     }
     public void DrawInventory()
     {
-        for (int i = 0; i < slotCount; i++)
+        foreach (InventoryItem item in player.inventory.ToList())
         {
-            AddInventorySlot();
-        }   
+            AddInventorySlot(item);
+        }
     }
-    public void AddInventorySlot()
+    public void AddInventorySlot(InventoryItem item)
     {
         GameObject newSlot = Instantiate(m_slotPrefab);
         newSlot.transform.SetParent(transform, false);
-        ItemSlot slot = newSlot.GetComponent<ItemSlot>();
+        InventoryUISlot slot = newSlot.GetComponent<InventoryUISlot>();
+        slot.Set(item);
     }
 }
