@@ -29,10 +29,10 @@ public class ModalInventoryUI : MonoBehaviour
             {
                 continue; 
             }
-            Debug.Log(player.inventory.LastModified);
-            if (t.gameObject.GetComponent<ItemSlot>().CurrItem.GetComponent<DraggableInventoryItem>().GetItemValue().data == player.inventory.LastModified.data)
+            if (t.gameObject.GetComponent<ItemSlot>().CurrItem.GetComponent<DraggableInventoryItem>().ItemValue.data == player.inventory.LastModified.data)
             {
-                t.gameObject.GetComponent<ItemSlot>().CurrItem.GetComponent<DraggableInventoryItem>().SetItemValue(player.inventory.LastModified);
+                t.gameObject.GetComponent<ItemSlot>().CurrItem.GetComponent<DraggableInventoryItem>().ItemValue = (player.inventory.LastModified);
+                return;
             }
         }
     }
@@ -44,9 +44,10 @@ public class ModalInventoryUI : MonoBehaviour
             if (t.gameObject.GetComponent<ItemSlot>().CurrItem == null)
             {
                 GameObject newItem = Instantiate(m_draggableItemPrefab);
-                Debug.Log(player.inventory.LastModified);
-                newItem.GetComponent<DraggableInventoryItem>().SetItemValue(player.inventory.LastModified);
+                newItem.transform.SetParent(this.transform.parent);
+                newItem.GetComponent<DraggableInventoryItem>().ItemValue = (player.inventory.LastModified);
                 t.gameObject.GetComponent<ItemSlot>().Put(newItem);
+                return;
             }
         }
     }
@@ -55,9 +56,10 @@ public class ModalInventoryUI : MonoBehaviour
     {
         foreach (Transform t in transform)
         {
-            if (t.gameObject.GetComponent<ItemSlot>().CurrItem.GetComponent<DraggableInventoryItem>().GetItemValue().data == player.inventory.LastModified.data)
+            if (t.gameObject.GetComponent<ItemSlot>().CurrItem.GetComponent<DraggableInventoryItem>().ItemValue.data == player.inventory.LastModified.data)
             {
                 Destroy(t.gameObject);
+                return;
             }
         }
     }

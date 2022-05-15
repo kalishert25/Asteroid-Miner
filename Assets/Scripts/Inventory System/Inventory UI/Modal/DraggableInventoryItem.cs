@@ -16,16 +16,13 @@ public class DraggableInventoryItem : MonoBehaviour, IPointerDownHandler, IBegin
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
 
-    public InventoryItem GetItemValue()
-    { return GetItemValue(); }
-
-    public void SetItemValue(InventoryItem value)
-    {
-        SetItemValue(value);
-        gameObject.GetComponent<Image>().sprite = GetItemValue().data.icon;
-        m_StackLabel.text = GetItemValue().stackSize.ToString();
-        m_TooltipLabel.text = GetItemValue().data.displayName;
-
+    public InventoryItem ItemValue { get { return itemValue; } set 
+        {
+            itemValue = value;
+            gameObject.GetComponent<Image>().sprite = value.data.icon;
+            m_StackLabel.text = value.stackSize.ToString();
+            m_TooltipLabel.text = value.data.displayName;
+        } 
     }
     private void Awake()
     {
