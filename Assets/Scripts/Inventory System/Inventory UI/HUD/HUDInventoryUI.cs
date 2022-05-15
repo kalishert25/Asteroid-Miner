@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryUI : MonoBehaviour
+public class HUDInventoryUI : MonoBehaviour
 {
     [SerializeField]
     private GameObject m_slotPrefab;
     [SerializeField]
     private StorageObject player;
-    void Awake()
+    void Awake()  
     {
+        DrawInventory();
         player.inventory.OnModified += OnUpdateInventory;
     }
 
@@ -24,10 +25,10 @@ public class InventoryUI : MonoBehaviour
     }
     public void DrawInventory()
     {
-        foreach(InventoryItem item in player.inventory.ToList())
+        foreach (InventoryItem item in player.inventory.ToList())
         {
             AddInventorySlot(item);
-        }
+        }   
     }
     public void AddInventorySlot(InventoryItem item)
     {
