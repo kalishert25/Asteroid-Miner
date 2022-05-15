@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DraggableInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IInitializePotentialDragHandler
+public class DraggableInventoryItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IInitializePotentialDragHandler//, IPointerClickHandler
 {
     private InventoryItem itemValue;
     [SerializeField]
@@ -79,4 +79,8 @@ public class DraggableInventoryItem : MonoBehaviour, IPointerDownHandler, IBegin
         eventData.useDragThreshold = false;
     }
 
+    //public void OnPointerClick(PointerEventData eventData)
+    //{
+    //    ((IPointerClickHandler)itemSlot).OnPointerClick(eventData);
+    //}
 }

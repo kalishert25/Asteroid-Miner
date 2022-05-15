@@ -2,13 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class ItemSlot : MonoBehaviour, IDropHandler, IEndDragHandler
+using UnityEngine.UI;
+
+public class ItemSlot : MonoBehaviour, IDropHandler //,IPointerClickHandler
 {
     private GameObject currItem;
     private Vector2 offset;
-
+    //private bool selected = false;
+    //[SerializeField]
+    //private Color selectedColor;
+    //private Color nonSelectedColor;
     public GameObject CurrItem { get => currItem; private set => currItem = value; }
 
+    private void Awake()
+    {
+        //nonSelectedColor = gameObject.GetComponent<Image>().color;
+    }
     private void Start()
     {
         offset = gameObject.transform.parent.GetComponent<RectTransform>().anchoredPosition;
@@ -37,7 +46,17 @@ public class ItemSlot : MonoBehaviour, IDropHandler, IEndDragHandler
         currItem = null;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
-    {
-    }
+
+    //public void OnPointerClick(PointerEventData eventData)
+    //{
+    //    selected = !selected;
+    //    if(selected)
+    //    {
+    //        gameObject.GetComponent<Image>().color = Color.blue;
+    //    }
+    //    else
+    //    {
+    //        gameObject.GetComponent<Image>().color = Color.white;
+    //    }
+    //}
 }
