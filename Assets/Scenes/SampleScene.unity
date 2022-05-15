@@ -1850,6 +1850,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7ec7d748f51553647bf75496a226ef4d, type: 2}
   - {fileID: 11400000, guid: bf0953ef5e5d215428a83df65f60a0a3, type: 2}
   - {fileID: 11400000, guid: 27785f049c6acfc488b6a94bf705bccf, type: 2}
+  - {fileID: 11400000, guid: 2ede73e57f6b4174bb8b04d6e6fa98af, type: 2}
+  - {fileID: 11400000, guid: 41e396c126e070f46a2fc244bcd3cb6b, type: 2}
   player: {fileID: 849831456}
   sprites:
   - {fileID: 21300000, guid: 81e4bca0face52f439b09cbede1f3e0e, type: 3}

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 72cc81feaa7b8cf4bbfaa6293438b794, type: 3}
-  m_Name: InventoryItemUranium
+  m_Name: InventoryItem_Platinum_Ore
   m_EditorClassIdentifier: 
-  id: InventoryItem_Uranium_Ore
-  displayName: Uranium Ore
-  icon: {fileID: 21300000, guid: 8772def6955f78a4da2a3d7283e851bd, type: 3}
+  id: InventoryItem_Platinum_Ore
+  displayName: Platinum Ore
+  icon: {fileID: 21300000, guid: b9e2bf81f207a1249834d13af54e8ef1, type: 3}
   value: 0
